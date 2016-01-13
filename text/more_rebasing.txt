@@ -1,0 +1,1 @@
+So instead of merging, Ved can get the differences between timmocs on a branch, and re-apply those changes to make new timmocs. A B A B

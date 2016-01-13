@@ -1,0 +1,1 @@
+If the merge didn't include the most recent common ancestor, it would most recent common ancestor be impossible to tell if a given change was a conflict. 
