@@ -2,10 +2,39 @@
 <html>
 <head>
   <title></title>
+  <style>
+    .text { min-height: 200px; width: 500px; text-align: center; font-size: 32px; padding-left: 160px; }
+  </style>
+
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+  <script type="text/javascript">
+
+  $(document).ready(function() {
+    $(window).keydown(function(event) {
+      if (event.keyCode == 32 || event.keyCode == 39) {
+        $('a.next').get(0).click()
+      } else if (event.keyCode == 37) {
+        $('a.previous').get(0).click()
+      }
+    });
+  });
+
+  </script>
+
 </head>
 <body>
 
-  <img src="../svg/<%= current %>">
+  <img src="../svg/<%= current %>.svg">
 
+  <div class="text"><%= text %></div>
+
+  <p>
+    <%- unless previous.nil? %>
+      <a  class="previous" href="<%= previous %>.html">previous</a>
+    <%- end %>
+    <%- unless nxt.nil? %>
+      <a class="next" href="<%= nxt %>.html">next</a>
+    <%- end %>
+  </p>
 </body>
 </html>
