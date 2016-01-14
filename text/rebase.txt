@@ -1,0 +1,3 @@
+Sometimes history can look a bit messy when two branches come together.
+
+So Ved can re-write history to make it like there was only ever one branch!

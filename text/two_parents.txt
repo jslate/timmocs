@@ -1,1 +1,1 @@
-Once in a while, a timmoc can have two parents instead of just one.
+When two branches are merged, that means you have a timmoc with two parents.

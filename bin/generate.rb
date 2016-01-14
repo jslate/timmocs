@@ -4,52 +4,68 @@ require 'pry'
 FILES = %w(
   this_is_a_timmocs
   timmocs_are_not_people
-  individuals
   adamant
   ved
   generations
+  branch_pointers
+  branch_pointers_head
+  what_is_branch
+  branch_moved_forward
   branch
-  branch_want_keep
   branch_update_point
-  no_new_timmoc
-  only_no_changes
-  most_recent_common_ancestor
-  go_back_for_ancestor
+  merging
   two_parents
   individual
-  merging
-  merge_with_ancestor
+  conflict_question
   ved_intervene
-  need_ancestor
-  triangle_horn
-  do_not_rely_on_ved
-  akward_she_head_thing
-  changes_on_multi_branches
-  do_not_know_conflict
-  early_rebasing
-  more_rebasing
-  deleted_rebased_from_branch
+  rebase
+  more_rebase
+  rebased
   )
+
 
 class Page
 
-  def initialize(current)
-    @current = current
-    index = FILES.index(@current)
-    @previous = FILES[index - 1] if index > 0
-    @nxt = FILES[index + 1] if index < FILES.count - 1
-    @text = File.read("text/#{@current}.txt").chomp
+  TEMPLATE = Erubis::Eruby.new(File.read('bin/template.erb'))
+
+  attr_accessor :group_index, :index, :image, :text, :previous, :nxt
+
+  def initialize(group_index, index, name, text)
+    @group_index = group_index
+    @index = index
+    @name = name
+    @text = text
   end
 
-  def html
-    template = File.read('bin/template.erb')
-    template = Erubis::Eruby.new(template)
-    template.result(current: @current, previous: @previous, nxt: @nxt, text: @text)
+  def html_filename
+    "#{(group_index + 1).to_s.rjust(3, "0")}_#{index + 1}_#{@name}.html"
+  end
+
+  def output_html
+    File.open("html/#{html_filename}", "w") do |io|
+      io.puts TEMPLATE.result(name: @name, text: @text, previous: @previous, nxt: @nxt)
+    end
   end
 
 end
 
+text_groups = []
 FILES.each.with_index do |file, index|
-  html = Page.new(file).html
-  File.open("html/#{file}.html", "w") { |io| io.puts html }
+  file_texts = File.read("text/#{file}.txt").split(/\n+/)
+  text_groups << {name: file, texts: file_texts}
 end
+
+pages = []
+text_groups.each.with_index do |text_group, group_index|
+  text_group[:texts].each.with_index do |text, text_index|
+    pages << Page.new(group_index, text_index, text_group[:name], text)
+  end
+end
+
+pages.each.with_index do |page, index|
+  page.previous = index <= 0 ? nil : pages[index - 1].html_filename
+  page.nxt = index >= pages.count - 1 ? nil : pages[index + 1].html_filename
+end
+
+pages.each(&:output_html)
+

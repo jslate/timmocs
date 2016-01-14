@@ -24,16 +24,16 @@
 </head>
 <body>
 
-  <img src="../svg/<%= current %>.svg">
+  <img height="500" src="../svg/<%= name %>.svg">
 
   <div class="text"><%= text %></div>
 
   <p>
     <%- unless previous.nil? %>
-      <a  class="previous" href="<%= previous %>.html">previous</a>
+      <a  class="previous" href="<%= previous %>">previous</a>
     <%- end %>
     <%- unless nxt.nil? %>
-      <a class="next" href="<%= nxt %>.html">next</a>
+      <a class="next" href="<%= nxt %>">next</a>
     <%- end %>
   </p>
 </body>

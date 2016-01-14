@@ -1,0 +1,3 @@
+One timmoc can have more than one child timmmoc. When this happens, we get a new branch on the family tree.
+
+But what is a branch? Really it is just a pointer to a single timmoc.

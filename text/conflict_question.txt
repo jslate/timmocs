@@ -1,0 +1,1 @@
+Sometimes two branches need to be merged together, but the features of the parents conflict.

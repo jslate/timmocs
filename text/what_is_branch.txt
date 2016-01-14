@@ -1,0 +1,3 @@
+When a new branch is created it just points to the commit HEAD points to.
+
+Usually, HEAD is moved to the new branch as well, so Ved can make changes on that branch.

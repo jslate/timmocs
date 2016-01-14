@@ -1,1 +1,7 @@
 In the case above, Ved updates the original branch to point to the timmoc on the branch with the new features.
+
+It is important to note that no new timmoc is created here!
+
+Both branches now just point to the same timmoc.
+
+However, this can only work when there aren't any changes in the other branch.
