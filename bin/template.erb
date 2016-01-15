@@ -3,7 +3,11 @@
 <head>
   <title></title>
   <style>
-    .text { min-height: 200px; width: 500px; text-align: center; font-size: 32px; padding-left: 160px; }
+    .text { min-height: 200px; width: 100%; text-align: center; font-size: 24px; }
+    .image-container { text-align: center; }
+    .previous-container, .next-container { width: 300px; padding-left: 10px; display: inline-block;  }
+    a { text-decoration: none; }
+    .next-container { text-align: right; }
   </style>
 
   <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
@@ -24,17 +28,24 @@
 </head>
 <body>
 
-  <img height="500" src="../svg/<%= name %>.svg">
+  <div>
+    <div class="previous-container">
+      <%- unless previous.nil? %>
+        <a class="previous" href="<%= previous %>">&lt;&lt;previous</a>
+      <%- end %>
+    </div>
+    <div class="next-container">
+      <%- unless nxt.nil? %>
+        <a class="next" href="<%= nxt %>">next&gt;&gt;</a>
+      <%- end %>
+    </div>
+  </div>
+
+  <div class="image-container">
+    <img height="400" src="svg/<%= name %>.svg">
+  </div>
 
   <div class="text"><%= text %></div>
 
-  <p>
-    <%- unless previous.nil? %>
-      <a  class="previous" href="<%= previous %>">previous</a>
-    <%- end %>
-    <%- unless nxt.nil? %>
-      <a class="next" href="<%= nxt %>">next</a>
-    <%- end %>
-  </p>
 </body>
 </html>

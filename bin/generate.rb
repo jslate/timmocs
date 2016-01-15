@@ -42,11 +42,19 @@ class Page
   end
 
   def output_html
-    File.open("html/#{html_filename}", "w") do |io|
+    File.open("output/#{html_filename}", "w") do |io|
       io.puts TEMPLATE.result(name: @name, text: @text, previous: @previous, nxt: @nxt)
     end
   end
 
+  def copy_svg
+    `cp svg/#{@name}.svg output/svg/#{@name}.svg`
+  end
+
+end
+
+['output', 'output/svg'].each do |dir|
+  Dir.mkdir(dir) unless Dir.exists?(dir)
 end
 
 text_groups = []
@@ -67,5 +75,8 @@ pages.each.with_index do |page, index|
   page.nxt = index >= pages.count - 1 ? nil : pages[index + 1].html_filename
 end
 
-pages.each(&:output_html)
+pages.each do |page|
+  page.output_html
+  page.copy_svg
+end
 
