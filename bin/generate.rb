@@ -19,6 +19,7 @@ FILES = %w(
   conflict_question
   ved_intervene
   rebase
+  rebase_diffs
   more_rebase
   rebased
   thats_all

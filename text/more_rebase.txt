@@ -1,5 +1,3 @@
-First Ved gets all the changes between timmocs on a new branch.
-
 Then Ved re-applies those changes to the most recent timmoc on the original branch.
 
 Each time Ved re-applies a change, that makes an entirely new timmoc!
