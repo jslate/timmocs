@@ -1,1 +1,0 @@
-However, this can only work when there aren't any changes in the other branch.

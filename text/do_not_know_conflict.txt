@@ -1,1 +1,0 @@
-If we ignore the most recent common most recent common  ancestor here, we don't know if the ancestor triangle horn is a conflict or just a change. 

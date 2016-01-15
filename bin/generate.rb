@@ -21,6 +21,7 @@ FILES = %w(
   rebase
   more_rebase
   rebased
+  thats_all
   )
 
 
