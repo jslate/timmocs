@@ -18,6 +18,9 @@ FILES = %w(
   individual
   conflict_question
   ved_intervene
+  cherry_pick_pre
+  cherry_pick
+  cherry_pick_skip
   rebase
   rebase_diffs
   more_rebase

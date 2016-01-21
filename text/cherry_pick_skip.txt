@@ -1,0 +1,3 @@
+Here Ved only picks the timmoc with the beard to apply.
+
+So the new timmoc that is created only has the beard, and no hair on top!

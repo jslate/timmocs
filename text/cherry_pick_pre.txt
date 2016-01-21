@@ -1,0 +1,3 @@
+Sometimes Ved wants to pick timmocs from one branch and put them into another branch.
+
+Here Ved wants to apply the hair and beard to the timmoc with horns.

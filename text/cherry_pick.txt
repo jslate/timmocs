@@ -1,0 +1,4 @@
+The difference between timmocs on the hairy branch are calculated, and then new timmocs are created with those changes applied.
+
+Note, however, that only the changes from the timmocs Ved specifies are applied.
+
